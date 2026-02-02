@@ -2,6 +2,8 @@ import convert from "color-convert";
 export const generatePalette = (hex) => {
   const colors = [];
   console.log(hex);
+  console.log("jambon");
+
   const [h, s] = convert.hex.hsl(hex);
   const interval = 5;
   for (let l = 0; l < 100; l += interval) {
