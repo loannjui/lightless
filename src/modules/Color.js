@@ -6,7 +6,7 @@ export default class Color {
   constructor(hslArray) {
     this.#hsl = hslArray;
     this.#hex = `#${convert.hsl.hex(hslArray)}`;
-    this.#element = this.#generateElement;
+    this.#element = this.#generateElement();
   }
   #generateElement() {
  const colorElement = document.createElement("div");
