@@ -1,7 +1,8 @@
 import * as convert from "color-convert";
 export const generatePalette = (hexCode) => {
   const colors = [];
-  const [h, s] = convert.hex.hsl(hexCode);
+  const hex = hexCode.replace("#", "");
+  const [h, s] = convert.hex.hsl(hex);
   const interval = 2;
   for (let l = 0; l < 100; l + interval) {
     colors.push[h, s, l];
