@@ -1,10 +1,12 @@
 import { generatePalette, isHexCode } from "./modules/util";
+import convert from "color-convert";
 import { Color } from "./modules/Color";
 import { Notyf } from "notyf";
 import "notyf/notyf.min.css";
 
 const notyf = new Notyf();
 const form = document.querySelector("form");
+const colorContainer = document.querySelector("main");
 
 const handleForm = (e) => {
   try {
@@ -14,8 +16,7 @@ const handleForm = (e) => {
       throw new Error("Veuillez entrer un hexcode valide.");
     }
     const palette = generatePalette(inputValue);
-    displayColors(palette);
-    notyf.success(`copied ${color} to clipboard`);
+    displayColors(inputValue, palette);
   } catch (err) {
     notyf.error(err.message);
   }
@@ -23,33 +24,28 @@ const handleForm = (e) => {
 
 form.addEventListener("submit", handleForm);
 
-const containerElement = document.querySelector("main");
-const color = new Color([0, 0, 0]);
-color.display(containerElement);
-
-const displayColors = (palette) => {
-  palette.map((c) => new Color(c).display(colorContainer));
+const displayColors = (input, palette) => {
+  colorContainer.innerHTML = "";
   const header = document.querySelector("header");
   header.classList.add("minimized");
-  const colorContainer = document.querySelector("main");
-  colorContainer.innerHTML = "";
   const gradientColors = [
     0,
     Math.round(palette.length / 2),
     palette.length - 1,
   ].map((index) => `#${convert.hsl.hex(palette[index])}`);
 
-  document.body.style.background = `linear-gradient(-45deg, ${gradientColors.join(",")}`;
+  document.body.style.background = `linear-gradient(-45deg, ${gradientColors.join(",")})`;
   document.body.style.backgroundSize = `400% 400%`;
   document.documentElement.style.setProperty(
     "--shadow-color",
     hexToCSSHSL(input),
   );
+    palette.map((c) => new Color(c).display(colorContainer));
 };
 
-const colorContainer = document.querySelector("main");
 const handleMain = async (e) => {
   const color = e.target.closest(".color").dataset.color;
+  notyf.success(`copied ${color} to clipboard`);
   await navigator.clipboard.writeText(color);
 };
 colorContainer.addEventListener("click", handleMain);
