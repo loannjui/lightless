@@ -14,6 +14,7 @@ const handleForm = (e) => {
       throw new Error("Veuillez entrer un hexcode valide.");
     }
     const palette = generatePalette(inputValue);
+    displayColors(palette);
     notyf.success(`copied ${color} to clipboard`);
   } catch (err) {
     notyf.error(err.message);
@@ -27,6 +28,7 @@ const color = new Color([0, 0, 0]);
 color.display(containerElement);
 
 const displayColors = (palette) => {
+  palette.map((c) => new Color(c).display(colorContainer));
   const header = document.querySelector("header");
   header.classList.add("minimized");
   const colorContainer = document.querySelector("main");
