@@ -6,10 +6,10 @@ const handleForm = (e) => {
   try {
     e.preventDefault();
     const inputValue = e.target.firstElementChild.value;
-    if (isHexCode(inputValue)) {
+    if (!isHexCode(inputValue)) {
       throw new Error("Veuillez entrer un hexcode valide.");
     }
-    const palette = generatePalette(hexCode);
+    const palette = generatePalette(inputValue);
     console.log(palette, inputValue);
   } catch (err) {
     console.error(err);
