@@ -14,7 +14,7 @@ export const isHexCode = (input) => {
    return /^#[0-9A-F]{6}$/i.test(input);
 }
 
-export const convertHexToCssHsl = (hex) => {
+export const hexToCSSHSL = (hex) => {
     const hsl = convert.hex.hsl(hex);
     return `${hsl[0]}deg ${hsl[1]}% ${hsl[2]}%`;
 };
