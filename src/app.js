@@ -1,5 +1,7 @@
 import convert from 'color-convert';
 const generatePalette = (hexCode) => {
-    hslColor = convert.hex.hsl(hexCode);
+    const hslColor = convert.hex.hsl(hexCode);
     console.log(hslColor)
 }
+
+window.generatePalette = generatePalette;
