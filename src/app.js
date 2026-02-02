@@ -1,4 +1,4 @@
-import { generatePalette, isHexCode } from "./modules/utils";
+import { generatePalette, isHexCode } from "./modules/util";
 
 const form = document.querySelector("form");
 
