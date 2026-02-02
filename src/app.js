@@ -1,5 +1,5 @@
 import { generatePalette, isHexCode } from "./modules/util";
-import Color from "./modules/Color";
+import { Color } from "./modules/Color";
 import { Notyf } from "notyf";
 import "notyf/notyf.min.css";
 

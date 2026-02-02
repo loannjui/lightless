@@ -1,5 +1,5 @@
 import convert from "color-convert";
-export default class Color {
+export class Color {
   #hsl;
   #hex;
   #element;
