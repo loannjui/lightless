@@ -9,5 +9,5 @@ export const generatePalette = (hexCode) => {
   return colors;
 };
 export const isHexCode = (input) => {
-   return /^#[0-9A-F]{6}$/i.test(input.value);
+   return /^#[0-9A-F]{6}$/i.test(input);
 }
