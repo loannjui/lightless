@@ -1,4 +1,4 @@
-import * as convert from "color-convert";
+import convert from "color-convert";
 export const generatePalette = (hexCode) => {
   const colors = [];
   const hex = hexCode.replace("#", "");
