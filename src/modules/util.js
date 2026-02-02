@@ -4,9 +4,9 @@ export const generatePalette = (hexCode) => {
   const hex = hexCode.replace("#", "");
   console.log(hex);
   const [h, s] = convert.hex.hsl(hex);
-  const interval = 2;
-  for (let l = 0; l < 100; l + interval) {
-    colors.push[h, s, l];
+  const interval = 5;
+  for (let l = 0; l < 100; l += interval) {
+    colors.push([h, s, l]);
   }
   return colors;
 };
