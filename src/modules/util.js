@@ -2,7 +2,6 @@ import convert from "color-convert";
 export const generatePalette = (hex) => {
   const colors = [];
   console.log(hex);
-  console.log("jambon");
 
   const [h, s] = convert.hex.hsl(hex);
   const interval = 5;
@@ -14,3 +13,8 @@ export const generatePalette = (hex) => {
 export const isHexCode = (input) => {
    return /^#[0-9A-F]{6}$/i.test(input);
 }
+
+export const convertHexToCssHsl = (hex) => {
+    const hsl = convert.hex.hsl(hex);
+    return `${hsl[0]}deg ${hsl[1]}% ${hsl[2]}%`;
+};
