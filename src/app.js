@@ -1,4 +1,4 @@
-import { generatePalette, isHexCode } from "./modules/util";
+import { generatePalette, isHexCode, hexToCSSHSL } from "./modules/util";
 import convert from "color-convert";
 import { Color } from "./modules/Color";
 import { Notyf } from "notyf";
